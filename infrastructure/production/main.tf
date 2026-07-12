@@ -41,15 +41,13 @@ module "launch_template" {
   instance_type     = var.instance_type
   key_name          = module.keypair.key_name
   security_group_id = module.security.aws_security_group_backend_id
-  user_data = templatefile(
-    "${path.module}/user_data.sh",
-    {
-      db_endpoint = module.rds.db_endpoint
-      db_name     = var.db_name
-      db_username = var.db_username
-      db_password = var.db_password
-    }
-  )
+user_data = templatefile("${path.module}/user_data.sh", {
+  db_endpoint = module.rds.db_endpoint
+  db_name     = var.db_name
+  db_username = var.db_username
+  db_password = var.db_password
+ 
+})
 }
 module "autoscaling" {
   source                  = "../modules/autoscaling"

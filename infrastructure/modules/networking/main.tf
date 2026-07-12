@@ -68,12 +68,27 @@ resource "aws_route_table_association" "public2"{
     route_table_id=aws_route_table.public.id
 }
 
+resource "aws_eip" "nat" {
+    domain = "vpc"
+}
+
+resource "aws_nat_gateway" "nat" {
+    allocation_id = aws_eip.nat.id
+    subnet_id = aws_subnet.public1.id
+}
+
 resource "aws_route_table" "private" {
     vpc_id = aws_vpc.main_vpc.id
     tags = {
       Name="gym-private-route-table"
     }
 
+}
+
+resource "aws_route" "private_internet" {
+    route_table_id = aws_route_table.private.id
+    destination_cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat.id
 }
 resource "aws_route_table_association" "private1" {
     subnet_id = aws_subnet.private1.id

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ALL_DAYS   = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const TODAY_IDX  = new Date().getDay();                        // 0=Sun..6=Sat
 const TODAY_NAME = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][TODAY_IDX];
-const API=import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL ?? '';
 const WORKOUTS = [
   { name: "Bench press",      sets: "4 sets × 8 reps"  },
   { name: "Incline DB press", sets: "3 sets × 10 reps" },

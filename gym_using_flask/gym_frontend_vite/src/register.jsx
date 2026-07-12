@@ -12,7 +12,6 @@ const ALL_DAYS = [
   { day: 'Sat', workout: 'Arms' },
   { day: 'Sun', workout: 'Rest day' },
 ];
-const API=import.meta.env.VITE_API_URL;
 
 export default function Register() {
   const [step, setStep] = useState(1);

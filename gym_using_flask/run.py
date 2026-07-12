@@ -72,12 +72,11 @@ def login():
         'message': 'Invalid email or password'
     }), 401
 
-@app.route("/health",methods=["GET"])
-@login_required
+@app.route("/health", methods=["GET"])
 def healthy():
     return jsonify({
-        "status":"healthy"
-    }),200
+        "status": "healthy"
+    }), 200
 
 
 @app.route('/home', methods=['GET'])
@@ -246,7 +245,15 @@ def profile_image(filename):
     return send_from_directory(UPLOAD_FOLDER, filename)
 
 
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_frontend(path):
+    build_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'gym_frontend_vite', 'dist'))
+    requested_path = os.path.join(build_dir, path)
+    if path != '' and os.path.exists(requested_path):
+        return send_from_directory(build_dir, path)
+    return send_from_directory(build_dir, 'index.html')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True,port=5000)
+    app.run(host='0.0.0.0', debug=False, port=5000)

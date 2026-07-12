@@ -2,13 +2,14 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL ?? '';
+
 export default function Profile() {
   const [profile,   setProfile]   = useState(null);
   const [uploading, setUploading] = useState(false);
   const [preview,   setPreview]   = useState(null);
   const fileRef = useRef();
   const navigate = useNavigate();
-  const API=import.meta.env.VITE_API_URL;
   useEffect(() => {
     axios.get(`${API}/profile`, { withCredentials: true })
       .then(res => setProfile(res.data))

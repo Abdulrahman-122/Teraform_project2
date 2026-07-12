@@ -3,7 +3,10 @@ resource "aws_launch_template" "build_another" {
     image_id = var.ami
     instance_type = var.instance_type
     key_name = var.key_name
-    vpc_security_group_ids = [var.security_group_id]
+    network_interfaces {
+        associate_public_ip_address = true
+        security_groups = [var.security_group_id]
+    }
     user_data = base64encode(var.user_data)
     update_default_version = true
     tag_specifications {
