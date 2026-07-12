@@ -1,0 +1,9 @@
+# Terraform local artifacts
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Local environment files
+*.env
+*.env.*

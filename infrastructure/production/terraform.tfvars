@@ -1,0 +1,16 @@
+region = "eu-west-3"
+vpc_cidr = "10.0.0.0/16"
+public_subnet1 = "10.0.1.0/24"
+public_subnet2 = "10.0.2.0/24"
+private_subnet1 = "10.0.10.0/24"
+private_subnet2 = "10.0.20.0/24"
+key_name = "gym-key"
+public_key_path = "~/.ssh/terraform-gym.pub"
+ssh_cidr = "156.195.217.246/32"
+db_name = "My_maria"
+db_username = "maria"
+db_password = "Appsecrets"
+public_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnets = ["10.0.10.0/24", "10.0.20.0/24"]
+ami = "0e1c4170d9c01184b"
+instance_type = "t3.small"
