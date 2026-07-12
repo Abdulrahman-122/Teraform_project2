@@ -1,44 +1,44 @@
 variable "region" {
   description = "Aws region"
-  type=string
+  type        = string
 }
 variable "vpc_cidr" {
-    type=string
+  type = string
 }
 variable "public_subnet1" {
-  type=string
+  type = string
 }
 variable "public_subnet2" {
-  type=string
+  type = string
 }
 variable "private_subnet1" {
-  type=string
+  type = string
 }
 variable "private_subnet2" {
-  type=string
+  type = string
 }
 variable "key_name" {
-    type=string
+  type = string
 }
 variable "public_key_path" {
-  type=string
+  type = string
 }
 variable "ssh_cidr" {
   description = "Admin Ip allowed for ssh"
-  type = string
+  type        = string
 }
 variable "db_name" {
-  type=string
+  type = string
 }
 variable "db_username" {
   type = string
 }
 variable "db_password" {
-  type=string
+  type      = string
   sensitive = true
 }
 variable "public_subnets" {
-  type=list(string)
+  type = list(string)
 }
 variable "private_subnets" {
   type = list(string)

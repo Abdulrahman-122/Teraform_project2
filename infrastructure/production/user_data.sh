@@ -7,8 +7,8 @@ systemctl enable docker
 systemctl start docker
 sleep 10
 cd /home/ubuntu
-git clone https://github.com/Abdulrahman-122/Terrafrom2_project.git
-cd Terrafrom2_project/gym_using_flask 
+git clone https://github.com/Abdulrahman-122/Teraform_project2.git
+cd Teraform_project2/gym_using_flask 
 
 cat > .env <<EOF
 DATABASE_URL=mysql+pymysql://${db_username}:${db_password}@${db_endpoint}/${db_name}
